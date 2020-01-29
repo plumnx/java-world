@@ -1,27 +1,4 @@
-# **Spring Boot Actuator And Prometheus**
-
-## Spring Actuator
-
-### 1. Spring Actuator Endpoints
-
-#### 1.1 spring boot actuator
-https://www.vojtechruzicka.com/spring-boot-actuator/  
-https://bigjar.github.io/2018/08/19/Spring-Boot-Actuator-%E5%81%A5%E5%BA%B7%E6%A3%80%E6%9F%A5%E3%80%81%E5%AE%A1%E8%AE%A1%E3%80%81%E7%BB%9F%E8%AE%A1%E5%92%8C%E7%9B%91%E6%8E%A7/
-
-#### 1.2 health  
-http://127.0.0.1:8080/actuator/health  
-  
-#### 1.3 build-info  
-https://www.vojtechruzicka.com/spring-boot-version/    
-http://127.0.0.1:8080/actuator/info  
-mvn spring-boot:build-info
-
-#### 1.4 metrics
-http://127.0.0.1:8080/actuator/metrics
-
-#### 1.5 custom health indicator
-http://127.0.0.1:8080/actuator/health  
-
+# **Using Prometheus And Spring Boot Actuator **
 
 ## Promethues
 
@@ -65,14 +42,16 @@ http://localhost:8080/actuator
 http://localhost:8080/actuator/prometheus  
 
 #### 1.4 Run Prometheus By Docker Image  
+```
 $ docker pull prom/Prometheus
 $ docker run -d \
   -p 9090:9090 \
   --name prometheus \
   -v /opt/prometheus/prometheus.yml:/etc/prometheus/prometheus.yml \
   prom/Prometheus
+```
 
-And you can find the Prometheus.yml in resources\metrics：
+And you can find the Prometheus.yml in resources\metrics：  
 (Abd the job_name: prometheus is the Prometheus Server, and job_name: spring-actuator is your application )
 
 ```
@@ -107,7 +86,7 @@ scrape_configs:
 #### 1.4 Run Grafana By Docker Image  
 docker run -d --name=grafana -p 3000:3000 grafana/grafana 
 
-Using admin/admin login the grafana
+Using admin/admin login the grafana  
 And configure promethues, and add the Prometheus Dashboard
 
 

@@ -11,6 +11,7 @@
     <modules>
         <module>multi-thread-concurrent</module>
         <module>prometheus-springboot</module>
+        <module>actuator-springboot</module>
     </modules>
 
     <parent>
