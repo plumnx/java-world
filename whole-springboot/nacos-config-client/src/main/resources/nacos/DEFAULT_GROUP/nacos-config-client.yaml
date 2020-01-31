@@ -1,0 +1,5 @@
+# default profile
+test:
+  title: Title of Nacos-Config-Client 
+  aaa: aaa
+  bbb: bbb

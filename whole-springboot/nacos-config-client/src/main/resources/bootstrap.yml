@@ -1,0 +1,29 @@
+server:
+  port: 8001
+
+spring:
+  cloud:
+    nacos:
+      config:
+        server-addr: 192.168.3.13:8848
+        file-extension: yaml
+        group: DEFAULT_GROUP
+        namespace: 363c8eb4-4628-4b48-a0be-56f9e237bf32
+#
+#        ===== ext configuration start =====
+#        ext-config:
+#          - data-id: actuator.yaml
+#            group: DEFAULT_GROUP
+#            refresh: true
+#          - data-id: log.yaml
+#            group: DEFAULT_GROUP
+#            refresh: true
+#        ===== ext configuration end =====
+#
+#        ===== shard configuration start =====
+#        shared-dataids: actuator.yaml,log.yaml
+#        refreshable-dataids: actuator.yaml,log.yaml
+#        ===== shard configuration end =====
+#
+  application:
+    name: nacos-config-client

@@ -1,0 +1,4 @@
+# spring boot log configuration:
+logging:
+  level: 
+    root: info

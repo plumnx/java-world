@@ -1,0 +1,3 @@
+# dev profile (when activated will merge with default profile)
+test:
+  profileLabel: dev
