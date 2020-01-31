@@ -12,6 +12,7 @@ Then You can access the service by url below:
 http://192.168.3.13:8848/nacos/index.html
 
 #### 1.2 Running Nacos In Production
+Look like this [Cluster Installment](./install.md) link.
 
 ### 2 Using Nacos Client
 
