@@ -56,7 +56,7 @@ c.startup the nacos service in all of the server node
 sh startup.sh
 ```
 
-d.Using nginx or VIP to proxy the nacos servers
+d.Using nginx or VIP to proxy the nacos servers  
 ![pasted-152.png](./image/pasted-152.png)  
 
 ### 3 Some questions
