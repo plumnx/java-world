@@ -8,7 +8,7 @@
 install the database and execute the sql file.  
 And the sql schema create file(For example: nacos-mysql.sql) was in the nacos server conf folder.  
 
-![pasted-149.png](./image/pasted-149.png)  
+![pasted-149.png](/image/pasted-149.png)  
 
 modify the conf/application.properties
 ```
@@ -31,7 +31,7 @@ db.password=
 ### 2 Nacos Cluster:
 This is a sample Architecture Design For Nacos Cluster
 
-![pasted-150.png](./image/pasted-150.png)  
+![pasted-150.png](/image/pasted-150.png)  
 
 #### 2.1 install and config Database:
 The same steps as 1.1 step
@@ -57,7 +57,7 @@ sh startup.sh
 ```
 
 d.Using nginx or VIP to proxy the nacos servers
-![pasted-152.png](./image/pasted-152.png)  
+![pasted-152.png](/image/pasted-152.png)  
 
 ### 3 Some questions
 
