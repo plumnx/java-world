@@ -38,6 +38,9 @@ c.Refer to the dependency Using Annotation
 @EnableDiscoveryClient
 ```
 
+d.rest api:  
+http://127.0.0.1:8002/hello?name=test
+
 ### 3 Using Nacos Register For Service Consumer
 
 #### 3.1 Service Consumer By LoadBalancerClient
@@ -71,6 +74,9 @@ public String test() {
     return "Invoke: " + url + ", return: " + result;
 }
 ```
+
+c.rest api:  
+http://127.0.0.1:9000/test
 
 #### 3.2 Service Consumer By Feign
 a.Follow the steps from 2.1 service provider.    
@@ -135,6 +141,9 @@ interface Client {
 }
 ```
 
+c.rest api:  
+http://127.0.0.1:9001/test  
+
 #### 3.3 Service Consumer By RestTemplate
 a.Follow the steps from 2.1 service provider.    
   
@@ -181,6 +190,9 @@ public RestTemplate restTemplate() {
     return new RestTemplate();
 }
 ```
+
+c.rest api:  
+http://127.0.0.1:9002/test  
 
 #### 3.4 Service Consumer By WebClient
 a.Follow the steps from 2.1 service provider.    
@@ -234,6 +246,9 @@ public WebClient.Builder loadBalancedWebClientBuilder() {
     return WebClient.builder();
 }
 ```
+
+c.rest api:  
+http://127.0.0.1:9003/test  
 
 ### 4 reference
 
