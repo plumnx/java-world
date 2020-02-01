@@ -3,32 +3,32 @@
          xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
          xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
     <parent>
-        <artifactId>java-world</artifactId>
+        <artifactId>whole-springboot</artifactId>
         <groupId>com.plumnix.cloud</groupId>
         <version>1.0-SNAPSHOT</version>
     </parent>
     <modelVersion>4.0.0</modelVersion>
 
-    <artifactId>whole-springboot</artifactId>
-    <packaging>pom</packaging>
-    <modules>
-        <module>nacos-config-client</module>
-        <module>nacos-discovery-server</module>
-        <module>nacos-discovery-client-common</module>
-        <module>nacos-discovery-client-feign</module>
-        <module>nacos-discovery-client-resttemplate</module>
-        <module>nacos-discovery-client-webclient</module>
-    </modules>
+    <artifactId>nacos-discovery-server</artifactId>
 
     <properties>
-        <java.version>1.8</java.version>
         <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
+        <project.reporting.outputEncoding>UTF-8</project.reporting.outputEncoding>
+        <java.version>1.8</java.version>
     </properties>
 
     <dependencies>
         <dependency>
             <groupId>org.springframework.boot</groupId>
             <artifactId>spring-boot-starter-web</artifactId>
+        </dependency>
+        <dependency>
+            <groupId>com.alibaba.cloud</groupId>
+            <artifactId>spring-cloud-starter-alibaba-nacos-discovery</artifactId>
+        </dependency>
+        <dependency>
+            <groupId>org.springframework.boot</groupId>
+            <artifactId>spring-boot-starter-actuator</artifactId>
         </dependency>
     </dependencies>
 

@@ -1,0 +1,13 @@
+server:
+  port: 8002
+
+spring:
+  application:
+    name: nacos-discovery-server
+  cloud:
+    nacos:
+      discovery:
+        server-addr: 192.168.3.13:8848
+        namespace: 363c8eb4-4628-4b48-a0be-56f9e237bf32
+        cluster-name: DEFAULT
+
