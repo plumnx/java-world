@@ -28,8 +28,8 @@ spring:
   cloud:
     nacos:
       discovery:
-        server-addr: 192.168.3.13:8848
-        namespace: 363c8eb4-4628-4b48-a0be-56f9e237bf32
+        server-addr: 140.143.249.219:8848
+        namespace: 1cdfe0a0-1bdb-4a3f-a22e-7f0cb845ab16
         cluster-name: DEFAULT
 ```
 
@@ -57,8 +57,8 @@ spring:
   cloud:
     nacos:
       discovery:
-        server-addr: 192.168.3.13:8848
-        namespace: 363c8eb4-4628-4b48-a0be-56f9e237bf32
+        server-addr: 140.143.249.219:8848
+        namespace: 1cdfe0a0-1bdb-4a3f-a22e-7f0cb845ab16
         cluster-name: DEFAULT
 ```
 
@@ -100,8 +100,8 @@ spring:
   cloud:
     nacos:
       discovery:
-        server-addr: 192.168.3.13:8848
-        namespace: 363c8eb4-4628-4b48-a0be-56f9e237bf32
+        server-addr: 140.143.249.219:8848
+        namespace: 1cdfe0a0-1bdb-4a3f-a22e-7f0cb845ab16
         cluster-name: DEFAULT
 ```
 
@@ -158,8 +158,8 @@ spring:
   cloud:
     nacos:
       discovery:
-        server-addr: 192.168.3.13:8848
-        namespace: 363c8eb4-4628-4b48-a0be-56f9e237bf32
+        server-addr: 140.143.249.219:8848
+        namespace: 1cdfe0a0-1bdb-4a3f-a22e-7f0cb845ab16
         cluster-name: DEFAULT
 ```
 
@@ -216,8 +216,8 @@ spring:
   cloud:
     nacos:
       discovery:
-        server-addr: 192.168.3.13:8848
-        namespace: 363c8eb4-4628-4b48-a0be-56f9e237bf32
+        server-addr: 140.143.249.219:8848
+        namespace: 1cdfe0a0-1bdb-4a3f-a22e-7f0cb845ab16
         cluster-name: DEFAULT
 ```
 

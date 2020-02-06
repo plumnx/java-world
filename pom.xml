@@ -14,6 +14,7 @@
         <module>actuator-springboot</module>
         <module>skywalking-springboot</module>
         <module>whole-springboot</module>
+        <module>java-tool</module>
     </modules>
 
     <parent>

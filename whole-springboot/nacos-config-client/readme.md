@@ -9,7 +9,7 @@
 docker run --env MODE=standalone --name nacos -d -p 8848:8848 nacos/nacos-server
 ```
 Then You can access the service by url below:  
-http://192.168.3.13:8848/nacos/index.html
+http://140.143.249.219:8848/nacos/index.html
 
 #### 1.2 Running Nacos In Production
 Look like this [Cluster Installment](./install.md) link.
@@ -18,7 +18,7 @@ Look like this [Cluster Installment](./install.md) link.
 
 #### 2.1 Nano Configuration For Config Center
 ```
-Namespace: nacos-config-client (363c8eb4-4628-4b48-a0be-56f9e237bf32)
+Namespace: nacos-config-client (1cdfe0a0-1bdb-4a3f-a22e-7f0cb845ab16)
 Data ID: nacos-config-client.yaml
 Group: DEFAULT_GROUP
 Content [yaml]: 
@@ -35,7 +35,7 @@ http://127.0.0.1:8001/test2
 
 #### 2.2 Nano Configuration For Config Center (Target Profile)
 ```
-Namespace: nacos (363c8eb4-4628-4b48-a0be-56f9e237bf32)
+Namespace: nacos (1cdfe0a0-1bdb-4a3f-a22e-7f0cb845ab16)
 Data ID: nacos-config-client-dev.yaml
 Group: DEFAULT_GROUP
 Content [yaml]: 
@@ -44,7 +44,7 @@ test:
 ```
 
 ```
-Namespace: nacos (363c8eb4-4628-4b48-a0be-56f9e237bf32)
+Namespace: nacos (1cdfe0a0-1bdb-4a3f-a22e-7f0cb845ab16)
 Data ID: nacos-config-client-test.yaml
 Group: DEFAULT_GROUP
 Content [yaml]: 
@@ -60,7 +60,7 @@ spring.profiles.active=dev
 #### 2.3 Nano Configuration For Config Center (Multiply Configurations)
 The ext-config override order is the later has the more prior.
 ```
-Namespace: nacos (363c8eb4-4628-4b48-a0be-56f9e237bf32)
+Namespace: nacos (1cdfe0a0-1bdb-4a3f-a22e-7f0cb845ab16)
 Data ID: actuator.yaml
 Group: DEFAULT_GROUP
 Content [yaml]: 
@@ -79,7 +79,7 @@ management:
 ```
 
 ```
-Namespace: nacos (363c8eb4-4628-4b48-a0be-56f9e237bf32)
+Namespace: nacos (1cdfe0a0-1bdb-4a3f-a22e-7f0cb845ab16)
 Data ID: log.yaml
 Group: DEFAULT_GROUP
 Content [yaml]: 

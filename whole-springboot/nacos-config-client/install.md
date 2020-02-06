@@ -46,9 +46,9 @@ cp cluster.conf.example cluster.conf
 b.modify cluster.confg
 ```
 #ip:port
-192.168.3.13:8848
-192.168.3.14:8848
-192.168.3.15:8848
+140.143.249.219:8848
+140.143.249.220:8848
+140.143.249.221:8848
 ```
 
 c.startup the nacos service in all of the server node
