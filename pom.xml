@@ -15,6 +15,7 @@
         <module>skywalking-springboot</module>
         <module>whole-springboot</module>
         <module>java-tool</module>
+        <module>monitor-springboot</module>
     </modules>
 
     <parent>

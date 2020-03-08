@@ -1,0 +1,17 @@
+server:
+  port: 9001
+
+spring:
+  application:
+    name: producer-service
+  cloud:
+    nacos:
+      discovery:
+        server-addr: 152.136.46.93:8848
+        cluster-name: DEFAULT
+
+management:
+  endpoints:
+    web:
+      exposure:
+        include: '*'

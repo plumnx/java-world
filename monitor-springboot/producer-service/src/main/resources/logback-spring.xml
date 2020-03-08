@@ -1,0 +1,66 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<configuration>
+
+    <appender name="STDOUT" class="ch.qos.logback.core.ConsoleAppender">
+        <encoder class="ch.qos.logback.core.encoder.LayoutWrappingEncoder">
+            <layout class="org.apache.skywalking.apm.toolkit.log.logback.v1.x.TraceIdPatternLogbackLayout">
+                <pattern>%d{HH:mm:ss.SSS} [%thread] %-5level logger_name:%logger{36} - [%tid] - message:%msg%n</pattern>
+            </layout>
+        </encoder>
+    </appender>
+
+    <appender name="FILE" class="ch.qos.logback.core.rolling.RollingFileAppender">
+        <file>test.log</file>
+        <encoder class="ch.qos.logback.core.encoder.LayoutWrappingEncoder">
+            <layout class="org.apache.skywalking.apm.toolkit.log.logback.v1.x.TraceIdPatternLogbackLayout">
+                <pattern>%d{HH:mm:ss.SSS}|%thread|%-5level|%logger{36}|%X{key_words}|%tid|%msg%n</pattern>
+            </layout>
+        </encoder>
+        <rollingPolicy class="ch.qos.logback.core.rolling.FixedWindowRollingPolicy">
+            <fileNamePattern>tests.%i.log.zip</fileNamePattern>
+            <minIndex>1</minIndex>
+            <maxIndex>3</maxIndex>
+        </rollingPolicy>
+        <triggeringPolicy class="ch.qos.logback.core.rolling.SizeBasedTriggeringPolicy">
+            <maxFileSize>5MB</maxFileSize>
+        </triggeringPolicy>
+    </appender>
+
+    <logger name="com.plumnix.cloud" level="INFO"/>
+
+    <!--此示例配置的限制性更强, 并将尝试确保每条消息最终以有序的方式交付(as long the logging application stays alive) -->
+    <!--<appender name="diy-kafka-appender" class="com.github.danielwegener.logback.kafka.KafkaAppender">
+        <encoder class="ch.qos.logback.core.encoder.LayoutWrappingEncoder">
+            <layout class="org.apache.skywalking.apm.toolkit.log.logback.v1.x.TraceIdPatternLogbackLayout">
+                <pattern>%d{HH:mm:ss.SSS} [%thread] %-5level logger_name:%logger{36} - [%tid] - message:%msg%n</pattern>
+            </layout>
+        </encoder>
+
+        &lt;!&ndash; 指定推送到的kafka topic &ndash;&gt;
+        <topic>all_logs</topic>
+        &lt;!&ndash; ensure that every message sent by the executing host is partitioned to the same partition strategy &ndash;&gt;
+        <keyingStrategy class="com.github.danielwegener.logback.kafka.keying.HostNameKeyingStrategy"/>
+        &lt;!&ndash; block the logging application thread if the kafka appender cannot keep up with sending the log messages &ndash;&gt;
+        <deliveryStrategy class="com.github.danielwegener.logback.kafka.delivery.BlockingDeliveryStrategy">
+            &lt;!&ndash;在确认kafka可用前无限等待 &ndash;&gt;
+            <timeout>0</timeout>
+        </deliveryStrategy>
+        &lt;!&ndash; 指定Kafka的地址 &ndash;&gt;
+        &lt;!&ndash;<producerConfig>bootstrap.servers=kafka:9092</producerConfig>&ndash;&gt;
+        <producerConfig>bootstrap.servers=kafka1:9092,kafka2:9093,kafka3:9094</producerConfig>
+        &lt;!&ndash; 限制缓冲区内存，默认32M &ndash;&gt;
+        <producerConfig>buffer.memory=8388608</producerConfig>
+        &lt;!&ndash; 定义client.id &ndash;&gt;
+        <producerConfig>client.id=${HOSTNAME}-${CONTEXT_NAME}-logback-restrictive</producerConfig>
+        &lt;!&ndash; 使用gzip打包压缩日志发送，可用压缩类型: none, gzip, snappy  &ndash;&gt;
+        <producerConfig>compression.type=gzip</producerConfig>
+
+    </appender>-->
+
+    <root level="INFO">
+        <appender-ref ref="STDOUT"/>
+        <appender-ref ref="FILE"/>
+        <!-- 添加刚才的appender的名称，这里与终端日志打印并存 -->
+        <!--<appender-ref ref="diy-kafka-appender"/>-->
+    </root>
+</configuration>

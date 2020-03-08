@@ -1,0 +1,35 @@
+server:
+  port: 9000
+
+spring:
+  application:
+    name: gateway-service
+  cloud:
+    nacos:
+      discovery:
+        server-addr: 152.136.46.93:8848
+        cluster-name: DEFAULT
+    gateway:
+      # 设置与服务注册发现组件结合，这样可以采用服务名的路由策略
+      discovery:
+        locator:
+          enabled: true
+      # 配置路由规则
+#      routes:
+#        - id: consumer-service
+#          uri: lb://consumer-service
+#          predicates:
+#            - Method=GET,POST
+#            - Path=/consumer-service/**
+#        - id: producer-service
+#          uri: lb://producer-service
+#          predicates:
+#            - Method=GET,POST
+#            - Path=/producer-service/**
+
+logging: ## Spring Cloud Gateway的日志配置
+  level:
+    org.springframework.cloud.gateway: TRACE
+    org.springframework.http.server.reactive: DEBUG
+    org.springframework.web.reactive: DEBUG
+    reactor.ipc.netty: DEBUG
