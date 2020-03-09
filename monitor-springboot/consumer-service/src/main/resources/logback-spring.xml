@@ -1,15 +1,29 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <configuration>
 
+    <property name="logPath" value="${LOG_HOME-/var}/log" />
+
     <appender name="STDOUT" class="ch.qos.logback.core.ConsoleAppender">
         <encoder class="ch.qos.logback.core.encoder.LayoutWrappingEncoder">
             <layout class="org.apache.skywalking.apm.toolkit.log.logback.v1.x.TraceIdPatternLogbackLayout">
-                <pattern>%d{HH:mm:ss.SSS} [%thread] %-5level logger_name:%logger{36} - [%tid] - message:%msg%n</pattern>
+                <pattern>%d{HH:mm:ss.SSS} [%thread] %-5level logger_name:%logger{36} [%X{key_words}] - [%tid] - message:%msg%n</pattern>
             </layout>
         </encoder>
     </appender>
 
-    <logger name="com.example.demo" level="INFO"/>
+    <appender name="FILE" class="ch.qos.logback.core.rolling.RollingFileAppender">
+        <encoder class="ch.qos.logback.core.encoder.LayoutWrappingEncoder">
+            <layout class="org.apache.skywalking.apm.toolkit.log.logback.v1.x.TraceIdPatternLogbackLayout">
+                <pattern>%d{HH:mm:ss.SSS}|%thread|%-5level|%logger{36}|%X{key_words}|%tid|%msg%n</pattern>
+            </layout>
+        </encoder>
+        <rollingPolicy class="ch.qos.logback.core.rolling.TimeBasedRollingPolicy">
+            <fileNamePattern>${logPath}/consumer-service.%d.log</fileNamePattern>
+            <maxHistory>7</maxHistory>
+        </rollingPolicy>
+    </appender>
+
+    <logger name="com.plumnix.cloud" level="INFO"/>
 
     <!--此示例配置的限制性更强, 并将尝试确保每条消息最终以有序的方式交付(as long the logging application stays alive) -->
     <!--<appender name="diy-kafka-appender" class="com.github.danielwegener.logback.kafka.KafkaAppender">
@@ -29,19 +43,20 @@
             <timeout>0</timeout>
         </deliveryStrategy>
         &lt;!&ndash; 指定Kafka的地址 &ndash;&gt;
-        &lt;!&ndash;<producerConfig>bootstrap.servers=kafka:9092</producerConfig>&ndash;&gt;
-        <producerConfig>bootstrap.servers=kafka1:9092,kafka2:9093,kafka3:9094</producerConfig>
+        &lt;!&ndash;<consumerConfig>bootstrap.servers=kafka:9092</consumerConfig>&ndash;&gt;
+        <consumerConfig>bootstrap.servers=kafka1:9092,kafka2:9093,kafka3:9094</consumerConfig>
         &lt;!&ndash; 限制缓冲区内存，默认32M &ndash;&gt;
-        <producerConfig>buffer.memory=8388608</producerConfig>
+        <consumerConfig>buffer.memory=8388608</consumerConfig>
         &lt;!&ndash; 定义client.id &ndash;&gt;
-        <producerConfig>client.id=${HOSTNAME}-${CONTEXT_NAME}-logback-restrictive</producerConfig>
+        <consumerConfig>client.id=${HOSTNAME}-${CONTEXT_NAME}-logback-restrictive</consumerConfig>
         &lt;!&ndash; 使用gzip打包压缩日志发送，可用压缩类型: none, gzip, snappy  &ndash;&gt;
-        <producerConfig>compression.type=gzip</producerConfig>
+        <consumerConfig>compression.type=gzip</consumerConfig>
 
     </appender>-->
 
     <root level="INFO">
         <appender-ref ref="STDOUT"/>
+        <appender-ref ref="FILE"/>
         <!-- 添加刚才的appender的名称，这里与终端日志打印并存 -->
         <!--<appender-ref ref="diy-kafka-appender"/>-->
     </root>
