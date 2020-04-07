@@ -16,6 +16,7 @@
         <module>whole-springboot</module>
         <module>java-tool</module>
         <module>monitor-springboot</module>
+        <module>postgres-project</module>
     </modules>
 
     <parent>

@@ -1,0 +1,16 @@
+create table test(
+ id int primary key not null,
+ dept char(50) default null,
+ dept1 char(50) default null,
+ dept2 char(50) default null,
+ dept3 char(50) default null,
+ dept4 char(50) default null,
+ dept5 char(50) default null,
+ dept6 char(50) default null,
+ dept7 char(50) default null,
+ dept8 char(50) default null,
+ dept9 char(50) default null,
+ dept10 char(50) default null,
+ num int default null,
+ create_date date default null
+);
