@@ -9,7 +9,7 @@
 docker run --env MODE=standalone --name nacos -d -p 8848:8848 nacos/nacos-server
 ```
 Then You can access the service by url below:  
-http://140.143.249.219:8848/nacos/index.html
+http://152.136.46.93:8848/nacos/index.html
 
 #### 1.2 Running Nacos In Production
 Look like this [Cluster Installment](./install.md) link.

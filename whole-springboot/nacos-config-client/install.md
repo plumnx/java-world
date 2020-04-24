@@ -46,7 +46,7 @@ cp cluster.conf.example cluster.conf
 b.modify cluster.confg
 ```
 #ip:port
-140.143.249.219:8848
+152.136.46.93:8848
 140.143.249.220:8848
 140.143.249.221:8848
 ```
