@@ -17,6 +17,7 @@
         <module>java-tool</module>
         <module>monitor-springboot</module>
         <module>postgres-project</module>
+        <module>mybatis-springboot</module>
     </modules>
 
     <parent>
