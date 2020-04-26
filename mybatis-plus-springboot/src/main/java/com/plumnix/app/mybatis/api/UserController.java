@@ -27,7 +27,7 @@ public class UserController {
         user.setAge(new Random(100).nextInt());
         user.setEmail("email " + new Random(1000).nextLong());
         user.setAddress("address " + new Random(1000).nextLong());
-        userService.save(user);
+        userService.saveObject(user);
 
         log.info(new ObjectMapper().writeValueAsString(user));
     }

@@ -16,8 +16,8 @@ public class UserService {
     private UserMapper userMapper;
 
     @Transactional
-    public void save(User user) {
-        userMapper.save(user);
+    public void saveObject(User user) {
+        userMapper.saveObject(user);
     }
 
     @Transactional
