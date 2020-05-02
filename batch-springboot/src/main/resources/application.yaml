@@ -1,0 +1,18 @@
+server:
+  port: 9000
+
+spring:
+  application:
+    name: batch-service
+  datasource:
+    url: jdbc:postgresql://152.136.46.93:5432/postgres
+    username: postgres
+    password: Ab27911564
+    hikari:
+      minimum-idle: 20
+      maximum-pool-size: 40
+
+rocketmq:
+  name-server: 152.136.46.93:9876
+  producer:
+    group: batch-producer-group

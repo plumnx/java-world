@@ -19,6 +19,7 @@
         <module>postgres-project</module>
         <module>mybatis-springboot</module>
         <module>mybatis-plus-springboot</module>
+        <module>batch-springboot</module>
     </modules>
 
     <parent>
@@ -28,8 +29,9 @@
     </parent>
 
     <properties>
-        <java.version>1.8</java.version>
         <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
+        <project.reporting.outputEncoding>UTF-8</project.reporting.outputEncoding>
+        <java.version>11</java.version>
     </properties>
 
     <dependencyManagement>

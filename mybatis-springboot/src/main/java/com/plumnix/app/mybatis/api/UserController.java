@@ -5,6 +5,7 @@ import com.fasterxml.jackson.databind.ObjectMapper;
 import com.plumnix.app.mybatis.entity.User;
 import com.plumnix.app.mybatis.service.UserService;
 import lombok.extern.slf4j.Slf4j;
+import org.apache.ibatis.session.SqlSessionFactory;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RestController;
@@ -15,6 +16,9 @@ import java.util.Random;
 @Slf4j
 @RestController
 public class UserController {
+
+    @Autowired
+    private SqlSessionFactory sqlSessionFactory;
 
     @Autowired
     private UserService userService;
