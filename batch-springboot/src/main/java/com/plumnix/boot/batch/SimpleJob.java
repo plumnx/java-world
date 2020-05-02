@@ -2,10 +2,15 @@ package com.plumnix.boot.batch;
 
 import com.fasterxml.jackson.databind.ObjectMapper;
 import lombok.extern.slf4j.Slf4j;
+import org.springframework.batch.core.ExitStatus;
 import org.springframework.batch.core.Job;
 import org.springframework.batch.core.Step;
+import org.springframework.batch.core.StepExecution;
 import org.springframework.batch.core.configuration.annotation.JobBuilderFactory;
 import org.springframework.batch.core.configuration.annotation.StepBuilderFactory;
+import org.springframework.batch.core.listener.StepExecutionListenerSupport;
+import org.springframework.batch.core.step.skip.AlwaysSkipItemSkipPolicy;
+import org.springframework.batch.core.step.skip.NeverSkipItemSkipPolicy;
 import org.springframework.batch.item.ItemProcessor;
 import org.springframework.batch.item.ItemReader;
 import org.springframework.batch.item.ItemWriter;
@@ -42,6 +47,7 @@ public class SimpleJob {
                 reader(itemReader).
                 processor(itemProcessor).
                 writer(itemWriter).
+                faultTolerant().skipPolicy(new AlwaysSkipItemSkipPolicy()).
                 taskExecutor(taskExecutorPool).
                 throttleLimit(10).
                 build();
@@ -73,15 +79,26 @@ public class SimpleJob {
     public static class SimpleItemProcessor implements ItemProcessor<Integer, String> {
         @Override
         public String process(Integer item) {
+//            if(item == 9) {
+//                System.out.println(1 / 0);
+//            }
             return item.toString();
         }
     }
 
     @Slf4j
-    public static class SimpleItemWriter implements ItemWriter<String> {
+    public static class SimpleItemWriter extends StepExecutionListenerSupport implements ItemWriter<String> {
         @Override
         public void write(List<? extends String> items) throws Exception {
-            log.info("result = {}", new ObjectMapper().writeValueAsString(items));
+            log.info("===================================== result = {}", new ObjectMapper().writeValueAsString(items));
+        }
+
+        @Override
+        public ExitStatus afterStep(StepExecution stepExecution) {
+            if(stepExecution.getReadCount() != stepExecution.getWriteCount()) {
+                return ExitStatus.FAILED;
+            }
+            return super.afterStep(stepExecution);
         }
     }
 

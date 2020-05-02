@@ -46,7 +46,7 @@ public class BatchService {
                             JobParameters jobParameters = new JobParametersBuilder().addDate("sys-date", new Date()).toJobParameters();
                             JobExecution jobExecution = batchLauncher.run(job, jobParameters, (execution, throwable) -> {
                                 batchRecord.setJobInstanceId(execution.getJobId().intValue());
-                                if (execution.getStatus() == BatchStatus.FAILED || null != throwable) {
+                                if (ExitStatus.FAILED.getExitCode().equals(execution.getExitStatus().getExitCode()) || null != throwable) {
                                     batchRecord.setVersion(batchRecord.getVersion() + 1);
                                     batchRecord.setStatus(BatchRecord.RecordStatus.FAIL.getStatus());
                                     recordService.update(batchRecord);
