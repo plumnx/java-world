@@ -10,7 +10,7 @@
     <version>1.0-SNAPSHOT</version>
     <modules>
         <module>multi-thread-concurrent</module>
-        <module>prometheus-springboot</module>
+        <module>promethues-springboot</module>
         <module>actuator-springboot</module>
         <module>skywalking-springboot</module>
         <module>whole-springboot</module>
